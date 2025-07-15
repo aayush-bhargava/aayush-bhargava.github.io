@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Journey | Aayush</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom right, #000000, #0f2027, #203a43, #2c5364);
+            color: white;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        nav a {
+            color: #00ffff;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        .projects-section {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .projects-section h1 {
+            margin-bottom: 2rem;
+            color: #00ffff;
+        }
+
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #1e1e1e;
+            border-radius: 12px;
+            padding: 1.5rem;
+            max-width: 300px;
+            box-shadow: 0 0 15px #00ffff44;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .project-card h3 {
+            margin-top: 0.5rem;
+            color: #00ffff;
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+            margin: 1rem 0;
+        }
+
+        .project-card a {
+            display: inline-block;
+            margin: 0.3rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            background: #00ffff;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .project-card a:hover {
+            background: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="B4E8147F-4A9A-414C-8A99-DF4424DAABEE.jpeg" alt="Logo" />
+    </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="journey.html">Journey</a>
+        <a href="skills.html">Skills</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="projects-section" data-aos="fade-up">
+    <h1>My Journey</h1>
+    <div class="grid">
+
+        <!-- 🧠 Project 1 -->
+        <div class="project-card" data-aos="zoom-in">
+            <h3>Zombie Sub Hunter</h3>
+            <p>Detects forgotten subscriptions using Spring Boot & MongoDB.</p>
+            <a href="https://example.com/zombie-live" target="_blank">Live</a>
+            <a href="https://github.com/aayush-bhargava/zombie-sub-hunter" target="_blank">Source</a>
+        </div>
+
+        <!-- 🔌 Project 2 -->
+        <div class="project-card" data-aos="zoom-in">
+            <h3>Gesture Controlled Home</h3>
+            <p>Control appliances using ESP32 + MPU6050 gestures with WiFi.</p>
+            <a href="https://example.com/gesture-live" target="_blank">Live</a>
+            <a href="https://github.com/aayush-bhargava/gesture-home" target="_blank">Source</a>
+        </div>
+
+        <!-- 🛒 Optional: Add more projects -->
+        <div class="project-card" data-aos="zoom-in">
+            <h3>E-Commerce Backend</h3>
+            <p>RESTful Java Spring Boot microservices with JWT, payments, MongoDB, and Render deploy.</p>
+            <a href="#" target="_blank">Live</a>
+            <a href="#" target="_blank">Source</a>
+        </div>
+
+    </div>
+</section>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
+</body>
+</html>
