@@ -1,0 +1,14 @@
+{
+  "projects": [
+    {
+      "name": "Zombie Sub Hunter",
+      "description": "Detects forgotten subscriptions using Spring Boot and MongoDB.",
+      "link": "https://github.com/YOUR_USERNAME/zombie-sub-hunter"
+    },
+    {
+      "name": "Gesture-Controlled Appliances",
+      "description": "Control real devices via ESP32 and MPU6050 with WiFi.",
+      "link": "https://github.com/YOUR_USERNAME/gesture-appliance"
+    }
+  ]
+}
