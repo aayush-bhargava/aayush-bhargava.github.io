@@ -1,9 +1,148 @@
-/* Dark Mode */
-body.dark {
-    background: #ffffff;
-    color: #000000;
+/* 🌌 Global Setup */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom right, #000000, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    overflow-x: hidden;
+    transition: background 0.3s, color 0.3s;
+    text-align: center;
 }
 
+/* 🔥 Intro Flash */
+#intro {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeOut 3s forwards 2s;
+}
+#intro-name {
+    font-size: 6rem;
+    color: cyan;
+    animation: flash 1s infinite alternate;
+}
+@keyframes flash {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1.05); }
+}
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+/* 🔖 Sections */
+header, section, footer {
+    padding: 2rem;
+}
+.highlight {
+    font-size: 2.5rem;
+    color: #00ffff;
+}
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    background: #00ffff;
+    color: #000;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* 🧱 Project Grid */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.project {
+    background: #1e1e1e;
+    color: #fff;
+    max-width: 350px;
+    margin: 0 auto;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 0 15px #00ffff44;
+    transition: transform 0.3s ease;
+}
+.project:hover {
+    transform: translateY(-5px);
+}
+.project img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+.project h3 {
+    margin: 0.5rem 0;
+}
+.project p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+.project a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #00ffff;
+    text-decoration: none;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+/* 📩 Contact Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    margin: auto;
+}
+form input, form textarea {
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: none;
+    background: #222;
+    color: #fff;
+}
+form input::placeholder,
+form textarea::placeholder {
+    color: #aaa;
+}
+
+/* 📊 GitHub Chart */
+#github img {
+    max-width: 100%;
+    margin-top: 1rem;
+}
+
+/* 👣 Footer + Socials */
+.social-icons a {
+    margin: 0 1rem;
+    color: #00ffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+footer {
+    margin-top: 4rem;
+    padding: 2rem 0;
+    border-top: 1px solid #00ffff44;
+    text-align: center;
+}
+
+/* 🌗 Dark Mode Toggle Button */
 #darkToggle {
     position: fixed;
     top: 1rem;
@@ -14,40 +153,25 @@ body.dark {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    z-index: 999;
+    z-index: 10000;
+    font-weight: bold;
 }
 
-/* Contact Form */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 400px;
-    margin: auto;
+/* 🌙 Dark Mode Styling (Optional Toggle) */
+body.dark {
+    background: #ffffff;
+    color: #000000;
 }
-
-form input, form textarea {
-    padding: 0.8rem;
-    border-radius: 8px;
-    border: none;
+body.dark .btn {
+    background: #111;
+    color: #fff;
 }
-
-/* GitHub Chart */
-#github img {
-    max-width: 100%;
-    margin-top: 1rem;
+body.dark .project {
+    background: #f0f0f0;
+    color: #111;
+    box-shadow: 0 0 15px #111;
 }
-
-/* Social Icons */
-.social-icons a {
-    margin: 0 1rem;
+body.dark #darkToggle {
+    background: #111;
     color: #00ffff;
-    text-decoration: none;
-}
-
-footer {
-    margin-top: 4rem;
-    padding: 2rem 0;
-    border-top: 1px solid #00ffff44;
-    text-align: center;
 }

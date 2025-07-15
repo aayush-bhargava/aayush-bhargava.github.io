@@ -1,21 +1,21 @@
-// Hide intro and show main after 3 sec
+// 💥 Flash intro: show name, then reveal main content
 window.addEventListener('load', () => {
+    // Force dark mode by default
+    document.body.classList.add('dark');
+
+    // Hide intro after delay
     setTimeout(() => {
         document.getElementById('intro').style.display = 'none';
         document.getElementById('main-content').style.display = 'block';
     }, 3000);
 });
 
-
-// Dark Mode Toggle
-document.getElementById('darkToggle').addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-});
-
-
-// Load project cards dynamically
+// 🧠 Load project cards dynamically from projects.json
 fetch('projects.json')
-    .then(res => res.json())
+    .then(res => {
+        if (!res.ok) throw new Error("projects.json not found or invalid path");
+        return res.json();
+    })
     .then(data => {
         const container = document.getElementById('project-list');
         data.projects.forEach(p => {
@@ -31,4 +31,14 @@ fetch('projects.json')
       `;
             container.appendChild(div);
         });
+    })
+    .catch(err => {
+        console.error("Error loading projects:", err);
+        const container = document.getElementById('project-list');
+        container.innerHTML = "<p style='color: red;'>⚠️ Failed to load project data.</p>";
     });
+
+// 🌗 Dark mode toggle button
+document.getElementById('darkToggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+});
