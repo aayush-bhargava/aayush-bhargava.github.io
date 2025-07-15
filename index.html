@@ -1,31 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Aayush | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
 <body>
-<header>
-    <h1>Hello, I'm <span class="highlight">Aayush</span></h1>
-    <p>A passionate Backend Developer | Java | Spring Boot</p>
-    <nav>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
+<!-- Dark Mode Toggle -->
+<button id="darkToggle">🌙</button>
 
-<section id="projects">
-    <h2>Projects</h2>
-    <div id="project-list"></div>
-</section>
+<!-- Intro Flash Screen -->
+<div id="intro">
+    <h1 id="intro-name">AAYUSH</h1>
+</div>
 
-<section id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: aayush@example.com</p>
-    <p><a href="https://github.com/YOUR_USERNAME" target="_blank">GitHub</a></p>
-</section>
+<!-- Main Content -->
+<div id="main-content" style="display:none">
+    <header>
+        <h2 class="highlight" data-aos="fade-up">Java + Spring Boot Developer</h2>
+        <a href="#contact" class="btn" data-aos="fade-up" data-aos-delay="300">Contact Me</a>
+    </header>
 
+    <section id="projects" data-aos="fade-up">
+        <h2>Projects</h2>
+        <div id="project-list" class="grid"></div>
+    </section>
+
+    <section id="contact" data-aos="fade-up">
+        <h2>Contact Me</h2>
+        <form action="https://formsubmit.co/your_email@example.com" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Send</button>
+        </form>
+    </section>
+
+    <section id="github" data-aos="fade-up">
+        <h2>GitHub Activity</h2>
+        <img src="https://ghchart.rshah.org/aayush-bhargava" alt="GitHub chart" />
+    </section>
+
+    <section id="extras" data-aos="fade-up">
+        <a href="Resume%20Aayush%20Bhargava.pdf" download class="btn">📄 Download Resume</a>
+    </section>
+
+    <footer data-aos="fade-up">
+        <p>Connect with me:</p>
+        <div class="social-icons">
+            <a href="https://github.com/aayush-bhargava" target="_blank">🐙 GitHub</a>
+            <a href="https://linkedin.com/in/aayush-bhargava-27b9ab369" target="_blank">🔗 LinkedIn</a>
+            <a href="aayushbhargava71@gmail.com">📧 Email</a>
+        </div>
+        <p>&copy; 2025 Aayush</p>
+    </footer>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 <script src="script.js"></script>
 </body>
-</html>

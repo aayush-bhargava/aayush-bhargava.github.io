@@ -2,13 +2,17 @@
   "projects": [
     {
       "name": "Zombie Sub Hunter",
-      "description": "Detects forgotten subscriptions using Spring Boot and MongoDB.",
-      "link": "https://github.com/YOUR_USERNAME/zombie-sub-hunter"
+      "description": "Detects forgotten subscriptions via Spring Boot + MongoDB.",
+      "image": "https://via.placeholder.com/300x180.png?text=Zombie+Hunter",
+      "live": "https://your-live-link.com",
+      "source": "https://github.com/YOUR_USERNAME/zombie-sub-hunter"
     },
     {
-      "name": "Gesture-Controlled Appliances",
-      "description": "Control real devices via ESP32 and MPU6050 with WiFi.",
-      "link": "https://github.com/YOUR_USERNAME/gesture-appliance"
+      "name": "Gesture Controlled Home",
+      "description": "Control appliances using ESP32 + MPU6050 gestures.",
+      "image": "https://via.placeholder.com/300x180.png?text=Gesture+Home",
+      "live": "https://your-live-link.com",
+      "source": "https://github.com/YOUR_USERNAME/gesture-home"
     }
   ]
 }
