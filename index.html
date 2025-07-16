@@ -11,15 +11,16 @@
         body {
             margin: 0;
             font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(to bottom right, #000000, #0f2027, #203a43, #2c5364);
-            color: white;
+            background: #f5f7fa;
+            color: #111;
         }
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
-            background: rgba(0, 0, 0, 0.7);
+            background: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -30,65 +31,96 @@
             border-radius: 50%;
         }
         nav a {
-            color: #00ffff;
+            color: #007acc;
             text-decoration: none;
             margin: 0 1rem;
             font-weight: 500;
             transition: color 0.3s;
         }
-        nav a:hover { color: #fff; }
+        nav a:hover { color: #004b7a; }
+
         section {
             padding: 4rem 2rem;
             text-align: center;
         }
-        .hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
-        .hero h2 { font-size: 1.5rem; color: #00ffff; min-height: 2rem; }
+        h2 {
+            color: #007acc;
+        }
         .btn {
-            background: #00ffff;
-            color: #000;
+            background: #007acc;
+            color: white;
             padding: 0.8rem 1.5rem;
             margin: 0.5rem;
             border: none;
             border-radius: 30px;
             cursor: pointer;
             font-weight: bold;
-            transition: transform 0.3s;
+            transition: background 0.3s;
         }
-        .btn:hover { transform: scale(1.05); }
+        .btn:hover {
+            background: #005e9b;
+        }
+        .social-icons {
+            margin-top: 1rem;
+        }
         .social-icons a {
-            color: #00ffff;
+            color: #007acc;
             margin: 0 1rem;
-            font-size: 1.5rem;
-            text-decoration: none;
+            font-size: 1.4rem;
+            transition: color 0.3s;
         }
-        .social-icons a:hover { color: #fff; }
+        .social-icons a:hover {
+            color: #004b7a;
+        }
         .project-card {
-            background: #1e1e1e;
-            border-radius: 12px;
+            background: #ffffff;
+            border-radius: 10px;
             padding: 1.5rem;
-            max-width: 300px;
-            box-shadow: 0 0 15px #00ffff44;
-            margin: 1rem auto;
-            transition: transform 0.3s ease;
+            max-width: 500px;
+            margin: 2rem auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: left;
         }
-        .project-card:hover { transform: translateY(-8px); }
+        .project-card h3 {
+            color: #007acc;
+        }
+        .project-card p {
+            font-size: 0.95rem;
+            color: #333;
+        }
+        .project-card a {
+            display: inline-block;
+            margin: 0.3rem 0.5rem 0 0;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            background: #007acc;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .project-card a:hover {
+            background: #005e9b;
+        }
         .bar {
-            background: #444;
+            background: #ddd;
             border-radius: 20px;
             overflow: hidden;
             margin-bottom: 1rem;
         }
         .bar-fill {
             height: 18px;
-            background: #00ffff;
+            background: #007acc;
             width: 0;
             border-radius: 20px;
             transition: width 2s ease-out;
         }
         .footer {
             padding: 2rem 0;
-            border-top: 1px solid #00ffff44;
+            background: #f0f0f0;
             text-align: center;
+            color: #444;
+            border-top: 1px solid #ddd;
         }
     </style>
 </head>
@@ -120,10 +152,11 @@
         <a href="mailto:aayushbhargava71@gmail.com"><i class="bi bi-envelope-fill"></i></a>
     </div>
 </section>
+
 <section id="about" data-aos="fade-up">
     <img src="img.png" alt="Aayush Photo" style="width:120px;border-radius:50%;box-shadow:0 0 15px #00ffff;margin-bottom:1rem;" />
     <h2>About Me</h2>
-    <p style="max-width:600px;margin:auto;">
+    <p style="max-width:600px;margin:auto;line-height: 1.6;">
         I’m a backend developer who believes in building smart, scalable systems that actually solve real problems.<br>
         With hands-on experience in Java, Spring Boot, and IoT-powered automation, I’ve built systems that control appliances and track forgotten subscriptions.<br>
         Currently pursuing engineering and constantly pushing myself through real-world solo projects — backed by clean code and caffeine.
@@ -154,6 +187,7 @@
         <a href="#">Source</a>
     </div>
 </section>
+
 <section id="skills" data-aos="fade-up">
     <h2>Skills</h2>
     <div style="max-width:600px;margin:auto;text-align:left">
@@ -198,6 +232,7 @@
     </div>
     <p>&copy; 2025 Aayush Bhargava</p>
 </footer>
+
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
