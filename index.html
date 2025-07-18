@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AB | The 10x Developer</title>
-    <!-- Favicon -->
-    <link rel="icon" href="AB.png" type="image/png">
+    <!-- Favicon (placeholder) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <!-- Icons -->
@@ -631,7 +631,7 @@
 <header>
     <div class="container header-container">
         <div class="logo">
-            <img src="AB.png" alt="AB Logo">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyLDBMMSwyNHYtMmgybC0yLTksMi05aC0ydjJoMmw5LTIwLDksMjBoMlY1aC0ybDIsOS0yLDloMnYyaC0yTDEyLDB6IiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==" alt="AB Logo">
             <h3>AB</h3>
         </div>
         <div class="menu-toggle" id="menuToggle">
@@ -668,7 +668,7 @@
         <h2 class="section-title">About Me</h2>
         <div class="about-container">
             <div class="profile-img">
-                <img src="img.png" alt="Aayush Bhargava">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMjU2LDBDMTE0LjYsMCwwLDExNC42LDAsMjU2czExNC42LDI1NiwyNTYsMjU2czI1Ni0xMTQuNiwyNTYtMjU2UzM5Ny40LDAsMjU2LDB6IE0yNTYsNDhjMTE0LjksMCwyMDgsOTMuMSwyMDgsMjA4cy05My4xLDIwOC0yMDgsMjA4UzQ4LDM2Mi45LDQ4LDI0OFMxNDEuMSw0OCwyNTYsNDh6Ii8+PGNpcmNsZSBmaWxsPSIjZmZmIiBjeD0iMTI4IiBjeT0iMTYwIiByPSI0MCIvPjxjaXJjbGUgZmlsbD0iI2ZmZiIgY3g9IjM4NCIgY3k9IjE2MCIgcj0iNDAiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMjU2LDI4OGMtNTIuOSwwLTk2LDMxLjctOTYsNzZoMTkyQzM1MiwzMTkuNywzMDguOSwyODgsMjU2LDI4OHoiLz48L3N2Zz4=" alt="Aayush Bhargava">
             </div>
             <div class="about-text">
                 <h3>Fresh but Ferocious</h3>
@@ -815,7 +815,7 @@
 
             <div class="testimonial-card">
                 <p>Clean backend architecture, well-documented APIs, and flawless deployment — exactly what we needed.</p>
-                    <p>The Spring Boot setup was professional and scalable. Highly recommended!</p>
+                <p>The Spring Boot setup was professional and scalable. Highly recommended!</p>
                 <div class="testimonial-author">
                     <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Client">
                     <div>
@@ -864,7 +864,7 @@
             <a href="#skills">Skills</a>
             <a href="#testimonials">Testimonials</a>
             <a href="#contact">Contact</a>
-            <a href="Resume%20Aayush%20Bhargava.pdf" download>Resume</a>
+            <a href="#" id="resumeLink">Resume</a>
         </div>
         <div class="social-links">
             <a href="https://github.com/aayush-bhargava" target="_blank"><i class="fab fa-github"></i></a>
@@ -1007,6 +1007,19 @@
     if (skillsSection) {
         skillsObserver.observe(skillsSection);
     }
+
+    // Contact form handling
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Application submitted! If your project meets my standards, I\'ll be in touch within 48 hours.');
+        this.reset();
+    });
+
+    // Resume link handling
+    document.getElementById('resumeLink').addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('Resume download would be triggered here in a real implementation.');
+    });
 </script>
 </body>
 </html>
