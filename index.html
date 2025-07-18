@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AB | The 10x Developer</title>
-    <!-- Favicon (placeholder) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+    <!-- Favicon -->
+    <link rel="icon" href="AB.png" type="image/png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <!-- Icons -->
@@ -344,26 +344,66 @@
             transition: width 1.5s ease;
         }
 
+        /* ===== BLOG SECTION ===== */
+        #blog {
+            background-color: var(--dark);
+        }
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        .blog-card {
+            background: var(--gray);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        .blog-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+        .blog-content {
+            padding: 25px;
+        }
+        .blog-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        .blog-content p {
+            margin-bottom: 20px;
+        }
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
         /* ===== TESTIMONIALS SECTION ===== */
         #testimonials {
             background-color: var(--gray);
         }
         .testimonials-container {
-            overflow-x: auto;
-            padding: 20px 0;
-            scrollbar-width: none; /* Firefox */
-        }
-        .testimonials-container::-webkit-scrollbar {
-            display: none; /* Chrome/Safari */
-        }
-        .testimonials-scroll {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
-            width: max-content;
-            padding: 20px;
         }
         .testimonial-card {
-            min-width: 350px;
             background: var(--dark);
             padding: 30px;
             border-radius: 15px;
@@ -511,6 +551,57 @@
             font-size: 0.9rem;
         }
 
+        /* ===== SCROLL TO TOP BUTTON ===== */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(110, 0, 255, 0.3);
+        }
+
+        /* ===== FLOATING RESUME BUTTON ===== */
+        .floating-resume {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        .floating-resume:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(110, 0, 255, 0.3);
+        }
+
         /* ===== VISUAL ELEMENTS ===== */
         .floating-element {
             position: absolute;
@@ -539,39 +630,6 @@
             left: 15%;
             font-size: 2rem;
             animation-delay: 2s;
-        }
-
-        /* ===== TERMINAL EASTER EGG ===== */
-        #terminal {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 350px;
-            height: 250px;
-            background: rgba(0, 0, 0, 0.9);
-            color: #0f0;
-            font-family: 'JetBrains Mono', monospace;
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid var(--accent);
-            z-index: 1000;
-            overflow-y: auto;
-        }
-        #terminal-input {
-            background: transparent;
-            border: none;
-            color: #0f0;
-            font-family: 'JetBrains Mono', monospace;
-            width: 80%;
-            outline: none;
-        }
-        .terminal-line {
-            margin-bottom: 5px;
-        }
-        .terminal-prompt {
-            color: var(--accent);
-            margin-right: 5px;
         }
 
         /* ===== MOBILE RESPONSIVENESS ===== */
@@ -618,6 +676,12 @@
             .anti-form {
                 padding: 30px 20px;
             }
+            .floating-resume {
+                bottom: 80px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 12px 20px;
+            }
         }
     </style>
 </head>
@@ -626,6 +690,16 @@
 <div class="floating-element element-1">🌌</div>
 <div class="floating-element element-2">🚀</div>
 <div class="floating-element element-3">💻</div>
+
+<!-- Floating Resume Button -->
+<a href="Resume_Aayush_Bhargava.pdf" download class="floating-resume">
+    <i class="fas fa-download"></i> Download Resume
+</a>
+
+<!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    <i class="fas fa-arrow-up"></i>
+</div>
 
 <!-- Header -->
 <header>
@@ -641,6 +715,7 @@
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
+            <a href="#blog">Blog</a>
             <a href="#testimonials">Testimonials</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -784,11 +859,59 @@
     </div>
 </section>
 
+<!-- Blog Section -->
+<section id="blog" class="section">
+    <div class="container">
+        <h2 class="section-title">Engineering Blog</h2>
+        <div class="blog-container">
+            <div class="blog-card">
+                <div class="blog-image">
+                    <img src="blog1.jpg" alt="Microservices Architecture">
+                </div>
+                <div class="blog-content">
+                    <h3>Why My Microservices Outperform Monoliths</h3>
+                    <p>Discover how I design microservices architectures that maintain the simplicity of monoliths while delivering superior scalability and performance...</p>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar-alt"></i> May 15, 2025</span>
+                        <span><i class="far fa-clock"></i> 8 min read</span>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-image">
+                    <img src="blog2.jpg" alt="Spring Boot Performance">
+                </div>
+                <div class="blog-content">
+                    <h3>Spring Boot at Scale: My Production Secrets</h3>
+                    <p>Learn the unconventional techniques I use to make Spring Boot applications handle 10x more traffic than typical implementations...</p>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar-alt"></i> April 28, 2025</span>
+                        <span><i class="far fa-clock"></i> 6 min read</span>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-image">
+                    <img src="blog3.jpg" alt="Database Optimization">
+                </div>
+                <div class="blog-content">
+                    <h3>The Database Patterns Most Developers Get Wrong</h3>
+                    <p>I've fixed hundreds of database implementations - here are the most common mistakes and how my approach delivers 100x better performance...</p>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar-alt"></i> March 10, 2025</span>
+                        <span><i class="far fa-clock"></i> 10 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Testimonials Section -->
 <section id="testimonials" class="section">
     <div class="container">
         <h2 class="section-title">Testimonials</h2>
-        <div class="testimonials-scroll">
+        <div class="testimonials-container">
             <div class="testimonial-card">
                 <p>“Working with Aayush was smooth and reliable. His backend logic was good enough, and he handled user authentication,</p>
                 <p>database design, and APIs like someone with far more experience. We had minimal revisions.”</p>
@@ -862,9 +985,9 @@
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
+            <a href="#blog">Blog</a>
             <a href="#testimonials">Testimonials</a>
             <a href="#contact">Contact</a>
-            <a href="#" id="resumeLink">Resume</a>
         </div>
         <div class="social-links">
             <a href="https://github.com/aayush-bhargava" target="_blank"><i class="fab fa-github"></i></a>
@@ -874,17 +997,6 @@
         <p class="copyright">&copy; 2025 Aayush Bhargava. All rights reserved.</p>
     </div>
 </footer>
-
-<!-- Terminal Easter Egg -->
-<div id="terminal">
-    <div class="terminal-line"><span class="terminal-prompt">></span> AB Terminal v1.0</div>
-    <div class="terminal-line"><span class="terminal-prompt">></span> Type "help" for commands</div>
-    <div id="terminal-output"></div>
-    <div class="terminal-line">
-        <span class="terminal-prompt">></span>
-        <input type="text" id="terminal-input" autocomplete="off">
-    </div>
-</div>
 
 <script>
     // Dynamic Tagline
@@ -913,73 +1025,20 @@
         document.getElementById('mainNav').classList.toggle('active');
     });
 
-    // Terminal Easter Egg
-    const konamiCode = [
-        'ArrowUp', 'ArrowUp',
-        'ArrowDown', 'ArrowDown',
-        'ArrowLeft', 'ArrowRight',
-        'ArrowLeft', 'ArrowRight',
-        'b', 'a'
-    ];
-    let konamiIndex = 0;
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === konamiCode[konamiIndex]) {
-            konamiIndex++;
-            if (konamiIndex === konamiCode.length) {
-                document.getElementById('terminal').style.display = 'block';
-                document.getElementById('terminal-input').focus();
-                konamiIndex = 0;
-            }
+    // Scroll to Top Button
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('active');
         } else {
-            konamiIndex = 0;
+            scrollTopBtn.classList.remove('active');
         }
     });
-
-    // Terminal Commands
-    const commands = {
-        help: () => `<div class="terminal-line">Available commands: help, skills, contact, clear</div>`,
-        skills: () => {
-            const skills = [
-                { name: 'Java', level: '■■■■■■■■■■ 100%' },
-                { name: 'Spring', level: '■■■■■■■■■□ 90%' },
-                { name: 'System Design', level: '■■■■■■■■■■ 95%' }
-            ];
-            return skills.map(s =>
-                `<div class="terminal-line">${s.name}: ${s.level}</div>`
-            ).join('');
-        },
-        contact: () => `<div class="terminal-line">Email: aayushbhargava71@gmail.com</div>`,
-        clear: () => {
-            document.getElementById('terminal-output').innerHTML = '';
-            return '';
-        }
-    };
-
-    document.getElementById('terminal-input').addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            const input = document.getElementById('terminal-input');
-            const command = input.value.toLowerCase().trim();
-            input.value = '';
-
-            const output = document.getElementById('terminal-output');
-            output.innerHTML += `<div class="terminal-line"><span class="terminal-prompt">></span> ${command}</div>`;
-
-            if (commands[command]) {
-                output.innerHTML += commands[command]();
-            } else {
-                output.innerHTML += `<div class="terminal-line">Unknown command: ${command}</div>`;
-            }
-
-            output.scrollTop = output.scrollHeight;
-        }
-    });
-
-    // Close terminal on ESC
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            document.getElementById('terminal').style.display = 'none';
-        }
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
 
     // Animate skill bars on scroll
@@ -1013,12 +1072,6 @@
         e.preventDefault();
         alert('Application submitted! If your project meets my standards, I\'ll be in touch within 48 hours.');
         this.reset();
-    });
-
-    // Resume link handling
-    document.getElementById('resumeLink').addEventListener('click', function(e) {
-        e.preventDefault();
-        alert('Resume download would be triggered here in a real implementation.');
     });
 </script>
 </body>
