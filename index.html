@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AB | The 10x Developer</title>
-    <!-- Favicon -->
-    <link rel="icon" href="AB.png" type="image/png">
-    <!-- Fonts -->
+    <title>Aayush Bhargava | The Scalability First Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ===== RESET & BASE ===== */
+        /* ===== CORE STYLES ===== */
         :root {
             --primary: #6e00ff;
             --secondary: #ff00aa;
@@ -25,69 +21,48 @@
             padding: 0;
             box-sizing: border-box;
         }
-        html {
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--dark);
             color: var(--light);
             line-height: 1.7;
-            position: relative;
+            overflow-x: hidden;
         }
         h1, h2, h3 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
         }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        img {
-            max-width: 100%;
-        }
-
-        /* ===== UTILITY CLASSES ===== */
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: white;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(110, 0, 255, 0.3);
-        }
         .section {
             padding: 100px 0;
             position: relative;
         }
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            position: relative;
-            display: inline-block;
-        }
-        .section-title::after {
-            content: '';
+
+        /* ===== VISUAL ELEMENTS ===== */
+        .floating-element {
             position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 50%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            z-index: 1;
+            animation: float 8s ease-in-out infinite;
+            opacity: 0.7;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(10px, -15px) rotate(5deg); }
+            75% { transform: translate(-10px, 10px) rotate(-5deg); }
+        }
+        .visual-1 { top: 15%; left: 5%; font-size: 3rem; animation-delay: 0s; }
+        .visual-2 { top: 70%; left: 80%; font-size: 4rem; animation-delay: 2s; }
+        .visual-3 { top: 40%; left: 15%; font-size: 2.5rem; animation-delay: 4s; }
+        .particle {
+            position: absolute;
+            background: var(--accent);
+            border-radius: 50%;
+            pointer-events: none;
         }
 
         /* ===== HEADER ===== */
@@ -107,24 +82,12 @@
             justify-content: space-between;
             align-items: center;
         }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
         .logo img {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--accent);
-        }
-        .logo h3 {
-            font-size: 1.5rem;
-            background: linear-gradient(45deg, var(--accent), var(--primary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
         }
         nav {
             display: flex;
@@ -147,11 +110,6 @@
         nav a:hover::after {
             width: 100%;
         }
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
 
         /* ===== HERO SECTION ===== */
         #home {
@@ -162,12 +120,7 @@
             position: relative;
             overflow: hidden;
         }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-        .god-mode {
+        .badge {
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             padding: 8px 20px;
             border-radius: 50px;
@@ -188,252 +141,46 @@
             background-clip: text;
             color: transparent;
         }
-        #home h2 {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            font-family: 'JetBrains Mono', monospace;
-        }
         .tagline {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            color: var(--accent);
-        }
-        .cta-container {
-            margin-top: 40px;
-        }
-        .reverse-psych {
-            max-width: 600px;
-            margin: 2rem auto;
-            padding: 1.5rem;
-            border-left: 3px solid var(--accent);
-            background: rgba(0, 247, 255, 0.05);
-            border-radius: 0 10px 10px 0;
-        }
-        .reverse-psych p {
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        /* ===== ABOUT SECTION ===== */
-        #about {
-            background-color: var(--dark);
-        }
-        .about-container {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            flex-wrap: wrap;
-        }
-        .profile-img {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-        }
-        .profile-img img {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--accent);
-            box-shadow: 0 0 30px rgba(0, 247, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-        .profile-img img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 50px rgba(0, 247, 255, 0.5);
-        }
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--accent);
-        }
-        .about-text p {
-            margin-bottom: 15px;
-        }
-        .rate-card {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 1.5rem;
-            margin-top: 2rem;
-            border-radius: 10px;
-            border: 1px solid var(--accent);
-            display: inline-block;
-        }
-        .rate-card p {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-        .rate-card span {
-            color: var(--accent);
-            font-weight: bold;
-        }
-        .rate-card small {
-            opacity: 0.8;
-        }
-
-        /* ===== SKILLS SECTION ===== */
-        #skills {
-            background: linear-gradient(135deg, rgba(110, 0, 255, 0.05) 0%, rgba(255, 0, 170, 0.05) 100%);
-        }
-        .skills-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            perspective: 1000px;
-        }
-        .skill-card {
-            width: 300px;
-            background: var(--gray);
-            padding: 30px;
-            border-radius: 15px;
-            transition: all 0.5s ease;
-            transform-style: preserve-3d;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        .skill-card:hover {
-            transform: rotateY(15deg) translateY(-10px);
-            background: linear-gradient(135deg, var(--gray), #3d3d4a);
-        }
-        .skill-card h3 {
             font-size: 1.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             color: var(--accent);
         }
-        .skill-item {
-            margin-bottom: 20px;
+
+        /* ===== BLOG SECTION ===== */
+        #blog {
+            background: linear-gradient(135deg, rgba(0, 247, 255, 0.05) 0%, rgba(110, 0, 255, 0.05) 100%);
         }
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
+        .blog-card {
+            background: var(--gray);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
         }
-        .skill-bar {
-            height: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            overflow: hidden;
+        .blog-card:hover {
+            transform: translateY(-10px);
         }
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 4px;
-            transition: width 1.5s ease;
+        .blog-card h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
         }
 
         /* ===== TESTIMONIALS SECTION ===== */
-        #testimonials {
-            background-color: var(--gray);
-        }
-        .testimonials-container {
-            overflow-x: auto;
-            padding: 20px 0;
-            scrollbar-width: none; /* Firefox */
-        }
-        .testimonials-container::-webkit-scrollbar {
-            display: none; /* Chrome/Safari */
-        }
-        .testimonials-scroll {
-            display: flex;
-            gap: 30px;
-            width: max-content;
-            padding: 20px;
-        }
+        /* ✏️ MANUAL TESTIMONIALS GO HERE */
         .testimonial-card {
-            min-width: 350px;
             background: var(--dark);
             padding: 30px;
             border-radius: 15px;
             border: 1px solid var(--accent);
         }
-        .testimonial-card p {
-            font-style: italic;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        .testimonial-card p::before,
-        .testimonial-card p::after {
-            content: '"';
-            font-size: 2rem;
-            color: var(--accent);
-            opacity: 0.3;
-        }
-        .testimonial-card p::before {
-            margin-right: 5px;
-        }
-        .testimonial-card p::after {
-            margin-left: 5px;
-        }
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .testimonial-author img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        .testimonial-author h4 {
-            color: var(--accent);
-        }
 
-        /* ===== CONTACT SECTION ===== */
-        #contact {
-            position: relative;
-        }
-        .anti-form {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 40px;
+        /* ===== SKILLS SECTION ===== */
+        /* ✏️ MANUAL SKILLS GO HERE */
+        .skill-card {
             background: var(--gray);
+            padding: 30px;
             border-radius: 15px;
-            border: 2px dashed var(--accent);
-            text-align: center;
-        }
-        .anti-form h2 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        .anti-form p {
-            margin-bottom: 30px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            color: white;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.3s ease;
-        }
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(0, 247, 255, 0.2);
-        }
-        .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-            font-style: italic;
-        }
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
         }
 
         /* ===== FOOTER ===== */
@@ -445,183 +192,31 @@
         .footer-logo {
             font-size: 2rem;
             margin-bottom: 30px;
-            background: linear-gradient(45deg, var(--accent), white);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
-        }
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-        .footer-links a {
-            transition: color 0.3s ease;
-        }
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        .social-links a {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-        .social-links a:hover {
-            background: var(--accent);
-            color: var(--dark);
-            transform: translateY(-5px);
-        }
-        .copyright {
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-
-        /* ===== VISUAL ELEMENTS ===== */
-        .floating-element {
-            position: absolute;
-            z-index: 1;
-            opacity: 0.3;
-            animation: float 6s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-        .element-1 {
-            top: 20%;
-            left: 5%;
-            font-size: 3rem;
-            animation-delay: 0s;
-        }
-        .element-2 {
-            top: 70%;
-            left: 80%;
-            font-size: 4rem;
-            animation-delay: 1s;
-        }
-        .element-3 {
-            top: 40%;
-            left: 15%;
-            font-size: 2rem;
-            animation-delay: 2s;
-        }
-
-        /* ===== TERMINAL EASTER EGG ===== */
-        #terminal {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 350px;
-            height: 250px;
-            background: rgba(0, 0, 0, 0.9);
-            color: #0f0;
-            font-family: 'JetBrains Mono', monospace;
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid var(--accent);
-            z-index: 1000;
-            overflow-y: auto;
-        }
-        #terminal-input {
-            background: transparent;
-            border: none;
-            color: #0f0;
-            font-family: 'JetBrains Mono', monospace;
-            width: 80%;
-            outline: none;
-        }
-        .terminal-line {
-            margin-bottom: 5px;
-        }
-        .terminal-prompt {
-            color: var(--accent);
-            margin-right: 5px;
         }
 
         /* ===== MOBILE RESPONSIVENESS ===== */
         @media (max-width: 768px) {
-            .section {
-                padding: 70px 0;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .menu-toggle {
-                display: block;
-            }
-            nav {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: var(--dark);
-                flex-direction: column;
-                padding: 20px;
-                gap: 15px;
-                display: none;
-                border-bottom: 1px solid var(--gray);
-            }
-            nav.active {
-                display: flex;
-            }
-            #home h1 {
-                font-size: 2.5rem;
-            }
-            #home h2 {
-                font-size: 1.3rem;
-            }
-            .about-container {
-                flex-direction: column;
-            }
-            .profile-img {
-                margin-bottom: 30px;
-            }
-            .skill-card {
-                width: 100%;
-            }
-            .anti-form {
-                padding: 30px 20px;
-            }
+            /* Responsive styles here */
         }
     </style>
 </head>
 <body>
 <!-- Floating Visual Elements -->
-<div class="floating-element element-1">🌌</div>
-<div class="floating-element element-2">🚀</div>
-<div class="floating-element element-3">💻</div>
+<div class="floating-element visual-1">✨</div>
+<div class="floating-element visual-2">🚀</div>
+<div class="floating-element visual-3">💻</div>
 
 <!-- Header -->
 <header>
     <div class="container header-container">
         <div class="logo">
-            <img src="AB.png" alt="AB Logo">
-            <h3>AB</h3>
+            <img src="AB-logo.png" alt="Aayush Bhargava">
         </div>
-        <div class="menu-toggle" id="menuToggle">
-            <i class="fas fa-bars"></i>
-        </div>
-        <nav id="mainNav">
+        <nav>
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
-            <a href="#testimonials">Testimonials</a>
+            <a href="#blog">Blog</a>
             <a href="#contact">Contact</a>
         </nav>
     </div>
@@ -629,137 +224,27 @@
 
 <!-- Hero Section -->
 <section id="home" class="section">
-    <div class="container hero-content">
-        <div class="god-mode">⚡ RANKED #1 BY TELEGRAM DEVS</div>
+    <div class="container">
+        <div class="badge">🚀 Voted "Most Likely to Break Production (Responsibly)"</div>
         <h1>Aayush Bhargava</h1>
-        <h2>The <span id="dynamicTagline">10x Developer</span></h2>
-        <p class="tagline">Building systems that outlive companies</p>
-
-        <div class="reverse-psych">
-            <p>"I reject 90% of projects - but yours might be the 10%"</p>
-            <a href="#contact" class="btn">Dare to Apply</a>
-        </div>
+        <h2 class="tagline">I build systems that scale like they're running on caffeine</h2>
+        <a href="#contact" class="btn">Dare to Hire Me</a>
     </div>
 </section>
 
-<!-- About Section -->
-<section id="about" class="section">
+<!-- Blog Section -->
+<section id="blog" class="section">
     <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-container">
-            <div class="profile-img">
-                <img src="profile.jpg" alt="Aayush Bhargava">
-            </div>
-            <div class="about-text">
-                <h3>Fresh but Ferocious</h3>
-                <p>While others were learning theory, I was shipping production-grade systems from day one. My secret? Treating every project like a Fortune 500 company's core infrastructure.</p>
-                <p>I specialize in building backend architectures that scale exponentially while maintaining the simplicity of a "Hello World" app.</p>
-                <div class="rate-card">
-                    <p>Standard Rate: <span>$150/hr</span></p>
-                    <small>(Student discount available if you impress me)</small>
-                </div>
-            </div>
+        <h2 class="section-title">Battle Journal</h2>
+        <div class="blog-card">
+            <h3>Why My Code Outperforms AI (And Always Will)</h3>
+            <p>AI generates code - I engineer systems. Here's why that distinction makes me irreplaceable...</p>
+            <a href="#" class="btn">Read More</a>
         </div>
-    </div>
-</section>
-
-<!-- Skills Section -->
-<section id="skills" class="section">
-    <div class="container">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-container">
-            <div class="skill-card">
-                <h3>Backend Wizardry</h3>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Java</span>
-                        <span>95%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 95%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Spring Boot</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Node.js</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <h3>System Design</h3>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Microservices</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>REST APIs</span>
-                        <span>92%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 92%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>WebSockets</span>
-                        <span>88%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 88%"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <h3>DevOps</h3>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Docker</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>AWS</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 80%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>CI/CD</span>
-                        <span>83%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 83%"></div>
-                    </div>
-                </div>
-            </div>
+        <div class="blog-card">
+            <h3>The Fresher's Guide to Looking Like a Senior Dev</h3>
+            <p>How I convinced clients I had 5 years of experience before my graduation...</p>
+            <a href="#" class="btn">Read More</a>
         </div>
     </div>
 </section>
@@ -767,68 +252,23 @@
 <!-- Testimonials Section -->
 <section id="testimonials" class="section">
     <div class="container">
-        <h2 class="section-title">Testimonials</h2>
-        <div class="testimonials-container">
-            <div class="testimonials-scroll">
-                <div class="testimonial-card">
-                    <p>Hired AB for what I thought was a 2-week project. He delivered a production-ready system in 3 days. Now I question my own engineering skills.</p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
-                        <div>
-                            <h4>Telegram Client #1</h4>
-                            <p>CTO at Stealth Startup</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <p>His code comments are more elegant than my production code. AB rearchitected our system to handle 10x traffic with half the servers.</p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client">
-                        <div>
-                            <h4>Telegram Client #2</h4>
-                            <p>Lead Engineer at FinTech</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <p>We paid AB $5k for a consultation. The one suggestion he made saved us $28k/month in cloud costs. Worth every penny.</p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Client">
-                        <div>
-                            <h4>Telegram Client #3</h4>
-                            <p>Founder at SaaS Company</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <h2 class="section-title">Client War Stories</h2>
+        <!-- ✏️ ADD TESTIMONIALS HERE -->
+        <div class="testimonial-card">
+            <p>"Testimonial 1"</p>
+            <p>- Client Name</p>
         </div>
     </div>
 </section>
 
-<!-- Contact Section -->
-<section id="contact" class="section">
+<!-- Skills Section -->
+<section id="skills" class="section">
     <div class="container">
-        <div class="anti-form">
-            <h2>Warning: High Standards Ahead</h2>
-            <p>I only accept 1 in 10 projects. Prove yours is exceptional.</p>
-
-            <form id="contactForm">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" class="form-control" placeholder="The person writing the check" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" class="form-control" placeholder="Where to send the invoice" required>
-                </div>
-                <div class="form-group">
-                    <label for="project">Project Details</label>
-                    <textarea id="project" class="form-control" placeholder="What makes this project worthy of my time? (Minimum 200 characters)" required minlength="200"></textarea>
-                </div>
-                <button type="submit" class="btn">Submit Application</button>
-            </form>
+        <h2 class="section-title">Tech Arsenal</h2>
+        <!-- ✏️ ADD SKILLS HERE -->
+        <div class="skill-card">
+            <h3>Backend</h3>
+            <p>Java, Spring Boot, Node.js</p>
         </div>
     </div>
 </section>
@@ -836,156 +276,46 @@
 <!-- Footer -->
 <footer class="section">
     <div class="container">
-        <div class="footer-logo">AB</div>
-        <div class="footer-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#contact">Contact</a>
-            <a href="Resume%20Aayush%20Bhargava.pdf" download>Resume</a>
-        </div>
+        <div class="footer-logo">Aayush Bhargava</div>
         <div class="social-links">
-            <a href="https://github.com/aayush-bhargava" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/aayush-bhargava-27b9ab369/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:aayushbhargava71@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
         </div>
         <p class="copyright">&copy; 2023 Aayush Bhargava. All rights reserved.</p>
     </div>
 </footer>
 
-<!-- Terminal Easter Egg -->
-<div id="terminal">
-    <div class="terminal-line"><span class="terminal-prompt">></span> AB Terminal v1.0</div>
-    <div class="terminal-line"><span class="terminal-prompt">></span> Type "help" for commands</div>
-    <div id="terminal-output"></div>
-    <div class="terminal-line">
-        <span class="terminal-prompt">></span>
-        <input type="text" id="terminal-input" autocomplete="off">
-    </div>
-</div>
-
 <script>
-    // Dynamic Tagline
-    const taglines = [
-        "10x Developer",
-        "System Architect",
-        "Backend Alchemist",
-        "Code Minimalist",
-        "Bug Exterminator"
-    ];
-    let currentTagline = 0;
-    const taglineElement = document.getElementById('dynamicTagline');
+    // Floating particles animation
+    function createParticles() {
+        const count = 30;
+        for (let i = 0; i < count; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
 
-    function rotateTagline() {
-        taglineElement.style.opacity = 0;
-        setTimeout(() => {
-            currentTagline = (currentTagline + 1) % taglines.length;
-            taglineElement.textContent = taglines[currentTagline];
-            taglineElement.style.opacity = 1;
-        }, 500);
+            // Random properties
+            const size = Math.random() * 5 + 2;
+            const posX = Math.random() * window.innerWidth;
+            const posY = Math.random() * window.innerHeight;
+            const duration = Math.random() * 10 + 10;
+            const delay = Math.random() * 5;
+
+            // Apply styles
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${posX}px`;
+            particle.style.top = `${posY}px`;
+            particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+
+            document.body.appendChild(particle);
+        }
     }
-    setInterval(rotateTagline, 3000);
 
-    // Mobile Menu Toggle
-    document.getElementById('menuToggle').addEventListener('click', function() {
-        document.getElementById('mainNav').classList.toggle('active');
+    // Initialize animations
+    window.addEventListener('load', () => {
+        createParticles();
     });
-
-    // Terminal Easter Egg
-    const konamiCode = [
-        'ArrowUp', 'ArrowUp',
-        'ArrowDown', 'ArrowDown',
-        'ArrowLeft', 'ArrowRight',
-        'ArrowLeft', 'ArrowRight',
-        'b', 'a'
-    ];
-    let konamiIndex = 0;
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === konamiCode[konamiIndex]) {
-            konamiIndex++;
-            if (konamiIndex === konamiCode.length) {
-                document.getElementById('terminal').style.display = 'block';
-                document.getElementById('terminal-input').focus();
-                konamiIndex = 0;
-            }
-        } else {
-            konamiIndex = 0;
-        }
-    });
-
-    // Terminal Commands
-    const commands = {
-        help: () => `<div class="terminal-line">Available commands: help, skills, contact, clear</div>`,
-        skills: () => {
-            const skills = [
-                { name: 'Java', level: '■■■■■■■■■■ 100%' },
-                { name: 'Spring', level: '■■■■■■■■■□ 90%' },
-                { name: 'System Design', level: '■■■■■■■■■■ 95%' }
-            ];
-            return skills.map(s =>
-                `<div class="terminal-line">${s.name}: ${s.level}</div>`
-            ).join('');
-        },
-        contact: () => `<div class="terminal-line">Email: aayushbhargava71@gmail.com</div>`,
-        clear: () => {
-            document.getElementById('terminal-output').innerHTML = '';
-            return '';
-        }
-    };
-
-    document.getElementById('terminal-input').addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            const input = document.getElementById('terminal-input');
-            const command = input.value.toLowerCase().trim();
-            input.value = '';
-
-            const output = document.getElementById('terminal-output');
-            output.innerHTML += `<div class="terminal-line"><span class="terminal-prompt">></span> ${command}</div>`;
-
-            if (commands[command]) {
-                output.innerHTML += commands[command]();
-            } else {
-                output.innerHTML += `<div class="terminal-line">Unknown command: ${command}</div>`;
-            }
-
-            output.scrollTop = output.scrollHeight;
-        }
-    });
-
-    // Close terminal on ESC
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            document.getElementById('terminal').style.display = 'none';
-        }
-    });
-
-    // Animate skill bars on scroll
-    const animateSkillBars = () => {
-        const skillBars = document.querySelectorAll('.skill-progress');
-        skillBars.forEach(bar => {
-            const width = bar.style.width;
-            bar.style.width = '0';
-            setTimeout(() => {
-                bar.style.width = width;
-            }, 100);
-        });
-    };
-
-    const skillsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateSkillBars();
-                skillsObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.2 });
-
-    const skillsSection = document.getElementById('skills');
-    if (skillsSection) {
-        skillsObserver.observe(skillsSection);
-    }
 </script>
 </body>
 </html>
